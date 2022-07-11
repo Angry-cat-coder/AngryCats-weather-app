@@ -17,26 +17,24 @@
   <body>
     <div class="container">
       <div class="weather-app">
-        <header>
-          AngryCats forecast
-          <img src="src/AngryKitty.jpg" alt="AngryCats" />
-        </header>
+        <h1 id="mainCity">Kyiv</h1>
         <div class="row">
-          <div class="col-6" id="mainCity">Kyiv</div>
-          <div class="col" id="temp">
-            <img
-              src="https://ssl.gstatic.com/onebox/weather/64/rain_s_cloudy.png"
-            />
-            25 ℃ | ℉
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
+          <div class="col-6">
             <ul>
               <li id="Current-day">Saturday</li>
               <li id="Current-date">4.June</li>
             </ul>
           </div>
+        </div>
+        <div class="row">
+          <div class="col" id="temp">
+            <img
+              src="https://ssl.gstatic.com/onebox/weather/64/rain_s_cloudy.png"
+              class="weather"
+            />
+            25 ℃ | ℉
+          </div>
+          <div class="col"></div>
 
           <div class="col" id="li">
             <ul>
@@ -46,14 +44,15 @@
             </ul>
           </div>
         </div>
-        <small
-          ><a
+        <footer>
+          <a
             href="https://github.com/Angry-cat-coder/AngryCats-weather-app"
             target="_blank"
             >Open-source code
           </a>
           by Angry-cat-Coder
-        </small>
+          <img src="src/AngryKitty.jpg" alt="AngryCats" id="img" />
+        </footer>
         <script src="src/app.js"></script>
       </div>
     </div>
