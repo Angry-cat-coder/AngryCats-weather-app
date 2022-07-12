@@ -1,7 +1,30 @@
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
+  let hour = date.getHours();
+  if (hour < 10) {
+    hour = `0${hour}`;
+  }
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[date.getDay()];
+  return `${day} ${hour} : ${minutes}`;
+}
+
 function showTemperature(response) {
   let temperature = Math.round(response.data.main.temp);
   let temp = document.querySelector("#temperature");
-  temp.innerHTML = `  ${temperature} ℃ `;
+  temp.innerHTML = `  ${temperature} `;
   let mainCity = document.querySelector("#mainCity");
   mainCity.innerHTML = response.data.name;
   let humidity = document.querySelector("#humidity");
@@ -10,6 +33,8 @@ function showTemperature(response) {
   winD.innerHTML = ` Windspeed: ${response.data.wind.speed} km/h`;
   let currentSky = document.querySelector("#Current-sky");
   currentSky.innerHTML = `${response.data.weather[0].description}`;
+  let day_time = document.querySelector("#Current-day");
+  day_time.innerHTML = formatDate(response.data.dt * 1000);
 }
 let key = "a2c12ca339db823fd39c58b7ef7264d1";
 let city_name = "Kyiv";
