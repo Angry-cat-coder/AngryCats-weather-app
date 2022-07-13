@@ -35,6 +35,17 @@ function showTemperature(response) {
   currentSky.innerHTML = `${response.data.weather[0].description}`;
   let day_time = document.querySelector("#Current-day");
   day_time.innerHTML = formatDate(response.data.dt * 1000);
+  let icon = document.querySelector("#sky");
+  icon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  icon.setAttribute(
+    "alt",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].description}@2x.png`
+  );
+  let description = document.querySelector("#Current-sky");
+  description.innerHTML = response.data.weather[0].description;
 }
 let key = "a2c12ca339db823fd39c58b7ef7264d1";
 let city_name = "Kyiv";
