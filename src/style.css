@@ -46,11 +46,19 @@ ul {
 }
 
 #temperature {
-  font-size: 48px;
-  line-height: 60px;
+  font-size: 64px;
+  line-height: 64px;
 }
 .units {
   font-family: Arial, Helvetica, sans-serif;
+  margin-left: 0;
   position: relative;
-  top: -25px;
+  top: -35px;
+  left: -10px;
+}
+#sky {
+  width: 90px;
+  position: relative;
+  top: -10px;
+  right: -10px;
 }
