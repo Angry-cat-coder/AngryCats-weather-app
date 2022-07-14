@@ -70,8 +70,18 @@ function showTemperature(response) {
   curentDate.innerHTML = formatMonth();
 }
 
-let key = "a2c12ca339db823fd39c58b7ef7264d1";
-let city_name = "Kyiv";
-let url = `https://api.openweathermap.org/data/2.5/weather?q=${city_name}&appid=${key}&units=metric`;
+function city(city) {
+  // console.log(city);
+  let apiKey = "a2c12ca339db823fd39c58b7ef7264d1";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(`${apiUrl}`).then(showTemperature);
+}
+city("Kyiv");
 
-axios.get(url).then(showTemperature);
+function handleSubmit(event) {
+  event.preventDefault();
+  let changeCity = document.querySelector("#city");
+  city(changeCity.value);
+}
+let search = document.querySelector("#search-form");
+search.addEventListener("submit", handleSubmit);
