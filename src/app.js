@@ -85,3 +85,26 @@ function handleSubmit(event) {
 }
 let search = document.querySelector("#search-form");
 search.addEventListener("submit", handleSubmit);
+
+function showPosition(position) {
+  console.log(position);
+
+  let lat = position.coords.latitude;
+  let lon = position.coords.longitude;
+
+  let apiKey = "a2c12ca339db823fd39c58b7ef7264d1";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+
+  axios.get(`${apiUrl}`).then(showTemperature);
+
+  // console.log(mainCity.value);
+  // let changeCity = document.querySelector("#city");
+  //changeCity.innerHTML = `${response.data.name};
+}
+
+function geoLocation() {
+  navigator.geolocation.getCurrentPosition(showPosition);
+}
+
+let geo = document.querySelector("#geo");
+geo.addEventListener("click", geoLocation);
