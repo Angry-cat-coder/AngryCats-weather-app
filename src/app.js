@@ -20,6 +20,25 @@ function formatDate(timestamp) {
   let day = days[date.getDay()];
   return `${day} ${hour} : ${minutes}`;
 }
+function formatMonth() {
+  let months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "Mai",
+    "June",
+    "July",
+    "August",
+    "September",
+    "Oktober",
+    "November",
+    "December",
+  ];
+  let now = new Date();
+  let month = months[now.getMonth()];
+  return `${now.getDate()}. ${month}`;
+}
 
 function showTemperature(response) {
   let temperature = Math.round(response.data.main.temp);
@@ -35,6 +54,7 @@ function showTemperature(response) {
   currentSky.innerHTML = `${response.data.weather[0].description}`;
   let day_time = document.querySelector("#Current-day");
   day_time.innerHTML = formatDate(response.data.dt * 1000);
+
   let icon = document.querySelector("#sky");
   icon.setAttribute(
     "src",
@@ -46,7 +66,10 @@ function showTemperature(response) {
   );
   let description = document.querySelector("#Current-sky");
   description.innerHTML = response.data.weather[0].description;
+  let curentDate = document.querySelector("#Current-date");
+  curentDate.innerHTML = formatMonth();
 }
+
 let key = "a2c12ca339db823fd39c58b7ef7264d1";
 let city_name = "Kyiv";
 let url = `https://api.openweathermap.org/data/2.5/weather?q=${city_name}&appid=${key}&units=metric`;
