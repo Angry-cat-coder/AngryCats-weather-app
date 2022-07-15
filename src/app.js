@@ -55,7 +55,7 @@ function showTemperature(response) {
   currentSky.innerHTML = `${response.data.weather[0].description}`;
   let day_time = document.querySelector("#Current-day");
   day_time.innerHTML = formatDate(response.data.dt * 1000);
-  celsiusTemperature = response.data.main.temp;
+  celsiusTemperature = Math.round(response.data.main.temp);
   let icon = document.querySelector("#sky");
   icon.setAttribute(
     "src",
@@ -113,6 +113,12 @@ function convertTofahrenheit(event) {
   temperature.innerHTML = fahrenheit;
 }
 
+function convertTocelsius(event) {
+  event.preventDefault();
+  let temperature = document.querySelector("#temperature");
+  temperature.innerHTML = celsiusTemperature;
+}
+
 let celsiusTemperature = null;
 let search = document.querySelector("#search-form");
 search.addEventListener("submit", handleSubmit);
@@ -122,3 +128,6 @@ geo.addEventListener("click", geoLocation);
 
 let fahrenheit = document.querySelector("#fahrenheit");
 fahrenheit.addEventListener("click", convertTofahrenheit);
+
+let celsius = document.querySelector("#celsius");
+celsius.addEventListener("click", convertTocelsius);
