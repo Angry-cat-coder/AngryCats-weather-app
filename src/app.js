@@ -20,6 +20,7 @@ function formatDate(timestamp) {
   let day = days[date.getDay()];
   return `${day} ${hour} : ${minutes}`;
 }
+
 function formatMonth() {
   let months = [
     "January",
@@ -54,7 +55,7 @@ function showTemperature(response) {
   currentSky.innerHTML = `${response.data.weather[0].description}`;
   let day_time = document.querySelector("#Current-day");
   day_time.innerHTML = formatDate(response.data.dt * 1000);
-
+  celsiusTemperature = response.data.main.temp;
   let icon = document.querySelector("#sky");
   icon.setAttribute(
     "src",
@@ -76,6 +77,7 @@ function city(city) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(`${apiUrl}`).then(showTemperature);
 }
+
 city("Kyiv");
 
 function handleSubmit(event) {
@@ -83,8 +85,6 @@ function handleSubmit(event) {
   let changeCity = document.querySelector("#city");
   city(changeCity.value);
 }
-let search = document.querySelector("#search-form");
-search.addEventListener("submit", handleSubmit);
 
 function showPosition(position) {
   console.log(position);
@@ -106,5 +106,19 @@ function geoLocation() {
   navigator.geolocation.getCurrentPosition(showPosition);
 }
 
+function convertTofahrenheit(event) {
+  event.preventDefault();
+  let temperature = document.querySelector("#temperature");
+  let fahrenheit = Math.round((celsiusTemperature * 9) / 5 + 32);
+  temperature.innerHTML = fahrenheit;
+}
+
+let celsiusTemperature = null;
+let search = document.querySelector("#search-form");
+search.addEventListener("submit", handleSubmit);
+
 let geo = document.querySelector("#geo");
 geo.addEventListener("click", geoLocation);
+
+let fahrenheit = document.querySelector("#fahrenheit");
+fahrenheit.addEventListener("click", convertTofahrenheit);
