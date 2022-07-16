@@ -69,6 +69,8 @@ function showTemperature(response) {
   description.innerHTML = response.data.weather[0].description;
   let curentDate = document.querySelector("#Current-date");
   curentDate.innerHTML = formatMonth();
+  fahrenheit.classList.remove("active");
+  celsius.classList.add("active");
 }
 
 function city(city) {
