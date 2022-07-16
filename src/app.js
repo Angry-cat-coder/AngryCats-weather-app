@@ -109,18 +109,18 @@ function geoLocation() {
 function convertTofahrenheit(event) {
   event.preventDefault();
   let temperature = document.querySelector("#temperature");
-  let fahrenheit = Math.round((celsiusTemperature * 9) / 5 + 32);
-  temperature.innerHTML = fahrenheit;
-  celsius.classList.remove("activ");
-  fahrenheit.classList.add("activ");
+  let fahrenheittemperature = Math.round((celsiusTemperature * 9) / 5 + 32);
+  temperature.innerHTML = fahrenheittemperature;
+  celsius.classList.remove("active");
+  fahrenheit.classList.add("active");
 }
 
 function convertTocelsius(event) {
   event.preventDefault();
   let temperature = document.querySelector("#temperature");
   temperature.innerHTML = celsiusTemperature;
-  celsius.classList.add("activ");
-  fahrenheit.classList.remove("activ");
+  celsius.classList.add("active");
+  fahrenheit.classList.remove("active");
 }
 
 let celsiusTemperature = null;
