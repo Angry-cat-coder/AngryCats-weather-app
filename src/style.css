@@ -23,7 +23,7 @@ ul {
   padding: 0;
   list-style: none;
 }
-.container {
+.wrap {
   max-width: 600px;
   margin: 30px auto;
 }
@@ -33,7 +33,7 @@ ul {
   border-radius: 5px;
 }
 
-#mainCity {
+h1 {
   color: black;
   font-weight: 500;
   font-size: 38px;
@@ -46,19 +46,19 @@ ul {
   margin-top: 10px;
 }
 
-#temperature {
-  font-size: 64px;
-  line-height: 64px;
-}
 .units {
-  font-family: Arial, Helvetica, sans-serif;
-  margin-left: 0;
   position: relative;
   top: -35px;
 }
-#sky {
+.weather-temperature img {
   width: 90px;
   position: relative;
   top: -10px;
   right: -10px;
+}
+.weather-temperature strong {
+  color: rgb(33, 33, 33);
+  font-size: 64px;
+  line-height: 1;
+  font-weight: 400;
 }
