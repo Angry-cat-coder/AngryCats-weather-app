@@ -111,12 +111,16 @@ function convertTofahrenheit(event) {
   let temperature = document.querySelector("#temperature");
   let fahrenheit = Math.round((celsiusTemperature * 9) / 5 + 32);
   temperature.innerHTML = fahrenheit;
+  celsius.classList.remove("activ");
+  fahrenheit.classList.add("activ");
 }
 
 function convertTocelsius(event) {
   event.preventDefault();
   let temperature = document.querySelector("#temperature");
   temperature.innerHTML = celsiusTemperature;
+  celsius.classList.add("activ");
+  fahrenheit.classList.remove("activ");
 }
 
 let celsiusTemperature = null;
