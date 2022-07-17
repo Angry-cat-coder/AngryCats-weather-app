@@ -44,7 +44,7 @@ function formatMonth() {
 function showTemperature(response) {
   let temperature = Math.round(response.data.main.temp);
   let temp = document.querySelector("#temperature");
-  temp.innerHTML = `  ${temperature} `;
+  temp.innerHTML = `${temperature}`;
   let mainCity = document.querySelector("#mainCity");
   mainCity.innerHTML = response.data.name;
   let humidity = document.querySelector("#humidity");

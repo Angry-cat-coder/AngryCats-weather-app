@@ -55,13 +55,13 @@ a {
   top: -35px;
 }
 .weather-temperature img {
-  width: 90px;
+  width: 80px;
   position: relative;
   top: -10px;
 }
 .weather-temperature strong {
   color: rgb(33, 33, 33);
-  font-size: 64px;
+  font-size: 55px;
   line-height: 1;
   font-weight: 400;
 }
