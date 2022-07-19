@@ -31,11 +31,12 @@ ul {
   margin: 30px auto;
   z-index: 3;
 }
-.weather-app {
+.weather-app,
+.forecast {
   padding: 20px;
   border: 1px solid lightgrey;
   border-radius: 5px;
-  background: white;
+  background: whitesmoke;
 }
 
 h1 {
@@ -72,4 +73,19 @@ a {
 .active {
   color: #000;
   cursor: default;
+}
+
+.forecast {
+  margin-top: 20px;
+  text-align: center;
+}
+.forecast-date {
+  font-size: 16px;
+  opacity: 0.6;
+}
+.forecast-temp {
+  font-size: 13px;
+}
+.temp-low {
+  opacity: 0.6;
 }
