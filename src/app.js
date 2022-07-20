@@ -41,7 +41,8 @@ function formatMonth() {
   return `${now.getDate()}. ${month}`;
 }
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecast = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
   let Days = ["Mon", "Teu", "Wed", "Thur", "Fri", "Sat", "Sun"];
@@ -60,6 +61,13 @@ function displayForecast() {
   });
   forecastHTML = forecastHTML + `</div>`;
   forecast.innerHTML = forecastHTML;
+}
+
+function getForecast(coords) {
+  console.log(coords);
+  let API_key = "a2c12ca339db823fd39c58b7ef7264d1";
+  let apiForecast = `https://api.openweathermap.org/data/2.5/onecall?lat=${coords.lat}&lon=${coords.lon}&appid=${API_key}`;
+  axios.get(`${apiForecast}`).then(displayForecast);
 }
 
 function showTemperature(response) {
@@ -92,6 +100,8 @@ function showTemperature(response) {
   curentDate.innerHTML = formatMonth();
   fahrenheit.classList.remove("active");
   celsius.classList.add("active");
+  //console.log(response);
+  getForecast(response.data.coord);
 }
 
 function city(city) {
@@ -110,7 +120,7 @@ function handleSubmit(event) {
 }
 
 function showPosition(position) {
-  console.log(position);
+  //console.log(position);
 
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
@@ -121,7 +131,7 @@ function showPosition(position) {
   axios.get(`${apiUrl}`).then(showTemperature);
 
   // console.log(mainCity.value);
-  // let changeCity = document.querySelector("#city");
+  //let changeCity = document.querySelector("#city");
   //changeCity.innerHTML = `${response.data.name};
 }
 
@@ -158,4 +168,3 @@ fahrenheit.addEventListener("click", convertTofahrenheit);
 
 let celsius = document.querySelector("#celsius");
 celsius.addEventListener("click", convertTocelsius);
-displayForecast();
