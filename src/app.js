@@ -146,9 +146,8 @@ function showPosition(position) {
 
   axios.get(`${apiUrl}`).then(showTemperature);
 
-  // console.log(mainCity.value);
-  //let changeCity = document.querySelector("#city");
-  //changeCity.innerHTML = `${response.data.name};
+  let changeCity = document.querySelector("#city");
+  changeCity.value = null;
 }
 
 function geoLocation() {
