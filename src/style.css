@@ -8,7 +8,6 @@ footer {
 }
 #img {
   max-width: 5%;
-  background: #2402e4;
 }
 
 li {
@@ -95,5 +94,4 @@ video {
   object-fit: cover;
   opacity: 0.6;
   z-index: -1;
-  overflow: hidden;
 }
