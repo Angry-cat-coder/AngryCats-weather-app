@@ -69,9 +69,9 @@ function displayForecast(response) {
               <div class="forecast-temp"><span class="temp-high">
               ${Math.round(
                 forecastDay.temp.max
-              )}</span><span class="temp-low"> ${Math.round(
+              )}°</span><span class="temp-low">  ${Math.round(
           forecastDay.temp.min
-        )}</span></div>
+        )}°</span></div>
             </div>`;
     }
   });
